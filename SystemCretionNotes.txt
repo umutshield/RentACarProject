@@ -1,0 +1,14 @@
+Katmanlarý oluþtur. Katmanlara klasörleri ekle. 
+Katmanlarda referans vermeyi unutma.(Entities>Core / DataAccess>Entities,Core / Business>DataAccess,Entites / ConsoleUI>core hariç hepsi)
+
+Entityleri oluþtur. (çýplak class kalmasýn)
+
+Service soyut sýnýfý, Manager somut sýnýfý temsil eder. Önce soyut sonra somut sýnýflar yazýlýr.
+
+DataAccess'te entitylerin interfacelerini oluþtur. 
+
+Business'ta entitylerin service interfaclerini(soyut sýnýflarý) oluþtur ve metotlarýný(iþ kurallarýný) yaz.
+Business'ta entitylerin managerlerýný(somut sýnýflarý) oluþtur ve interfaceleri implement et. Managerda constructorýný yaz ve bu 
+constructorýný soyut nesne ile yaz. Neden soyut bir nesne(ICarDal) ile yazdýk çünkü constructor newlendiðinde bir referans ister eðerki  
+biz entityframework  ya da baþka bir oracle ile bu referansý verseydik ve ilerleyen zamanda ef'ü deðiþtirmek isteseydik birçok problem
+yaþayacaktýk bu yüzden baðýmlýlýklarý minimize etmek için soyut bir nesneyi yazdýk.
