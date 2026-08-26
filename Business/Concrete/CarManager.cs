@@ -19,7 +19,7 @@ namespace Business.Concrete
 
         public List<Car> GetAll()
         {
-            throw new NotImplementedException();
+            return _carDal.GetAll();
         }
 
         public List<Car> GetAllByBrandId(int brandId)

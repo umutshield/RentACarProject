@@ -5,10 +5,17 @@ Entityleri oluþtur. (çýplak class kalmasýn)
 
 Service soyut sýnýfý, Manager somut sýnýfý temsil eder. Önce soyut sonra somut sýnýflar yazýlýr.
 
-DataAccess'te entitylerin interfacelerini oluþtur. 
+DataAccess'te entitylerin interfacelerini oluþtur. Burada interfacelere metot yazmayacaðýz generic tipli bir interface(IEntityRepository) 
+daha oluþturup buraya metotlarý yazacaðýz ve bu interface'i implement edeceðiz. 
 
 Business'ta entitylerin service interfaclerini(soyut sýnýflarý) oluþtur ve metotlarýný(iþ kurallarýný) yaz.
 Business'ta entitylerin managerlerýný(somut sýnýflarý) oluþtur ve interfaceleri implement et. Managerda constructorýný yaz ve bu 
 constructorýný soyut nesne ile yaz. Neden soyut bir nesne(ICarDal) ile yazdýk çünkü constructor newlendiðinde bir referans ister eðerki  
 biz entityframework  ya da baþka bir oracle ile bu referansý verseydik ve ilerleyen zamanda ef'ü deðiþtirmek isteseydik birçok problem
 yaþayacaktýk bu yüzden baðýmlýlýklarý minimize etmek için soyut bir nesneyi yazdýk.
+
+DataAccess'te somut sýnýflarý yani entity frameworkleri oluþtur. EF veritabaný tablolarýyla kodlarýmýz arasýnda iliþki kuran bir üründür.
+Entity Framework'ü sisteme ekle. (DataAccess > Nuget)
+Ef'ü yükledik ve þimdi kullanmamýz lazým. Veritabaný tablolarýyla kendi classlarýmýzý birbirine baðlamak için DataAccess>EntityFramework'te 
+bir class oluþtururuz. (RentacarContext)
+DataAccess>EntityFramework'te somut sýnýflara CRUD ve diðer metotlarý yazýp içeriklerini düzenleriz.
