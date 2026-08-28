@@ -17,24 +17,38 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        public void Add(Car car)
+        {
+            if (car.CarName.Length >= 2  && car.DailyPrice >=0 )
+            {
+                Console.WriteLine("Araba başarılı bir şekilde eklendi. ");
+            }
+            _carDal.Add(car);
+        }
+
         public List<Car> GetAll()
         {
             return _carDal.GetAll();
         }
 
-        public List<Car> GetAllByBrandId(int brandId)
+        public List<Car> GetAllByBrandId(int id)
         {
-            throw new NotImplementedException();
+            return _carDal.GetAll(p=>p.BrandId == id);
+        }
+
+        public List<Car> GetAllByColorId(int id)
+        {
+            return _carDal.GetAll(p => p.ColorId == id);
         }
 
         public List<Car> GetByDailyPrice(decimal min, decimal max)
         {
-            throw new NotImplementedException();
+            return _carDal.GetAll(p=>p.DailyPrice>=min && p.DailyPrice <=max);
         }
 
-        public Car GetById(int carId)
+        public Car GetById(int id)
         {
-            throw new NotImplementedException();
+            return _carDal.Get(p => p.CarId == id);
         }
     }
 }

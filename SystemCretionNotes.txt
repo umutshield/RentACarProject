@@ -13,6 +13,7 @@ Business'ta entitylerin managerlerını(somut sınıfları) oluştur ve interfaceleri 
 constructorını soyut nesne ile yaz. Neden soyut bir nesne(ICarDal) ile yazdık çünkü constructor newlendiğinde bir referans ister eğerki  
 biz entityframework  ya da başka bir oracle ile bu referansı verseydik ve ilerleyen zamanda ef'ü değiştirmek isteseydik birçok problem
 yaşayacaktık bu yüzden bağımlılıkları minimize etmek için soyut bir nesneyi yazdık.
+Managerda metotların içeriğini linq ile doldur.
 
 DataAccess'te somut sınıfları yani entity frameworkleri oluştur. EF veritabanı tablolarıyla kodlarımız arasında ilişki kuran bir üründür.
 Entity Framework'ü sisteme ekle. (DataAccess > Nuget)

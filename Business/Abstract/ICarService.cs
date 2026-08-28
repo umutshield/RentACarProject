@@ -10,8 +10,10 @@ namespace Business.Abstract
     public interface ICarService
     {
         List<Car> GetAll();
-        Car GetById(int carId);
+        Car GetById(int id);
         List<Car> GetByDailyPrice(decimal min, decimal max);
-        List<Car> GetAllByBrandId(int brandId);
+        List<Car> GetAllByBrandId(int id);
+        List<Car> GetAllByColorId(int id);
+        void Add(Car car);
     }
 }
