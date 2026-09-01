@@ -1,84 +1,11 @@
-﻿Use RentACar
+﻿USE RentACar;
 
-CREATE TABLE [dbo].[Colors] (
-    [Id]   INT           IDENTITY (1, 1) NOT NULL,
-    [Name] NVARCHAR (25) NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
-);
+DELETE FROM Cars;
 
-CREATE TABLE [dbo].[Brands] (
-    [Id]   INT           IDENTITY (1, 1) NOT NULL,
-    [Name] NVARCHAR (25) NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
-)
-
-CREATE TABLE [dbo].[Cars] (
-    [Id]           INT           IDENTITY (1, 1) NOT NULL,
-    [Name]         NVARCHAR (50) NULL,
-    [BrandId]      INT           NULL,
-    [ColorId]      INT           NULL,
-    [DailyPrice]   DECIMAL (18)  NULL,
-    [ModelYear]    INT           NULL,
-    [Descriptions] NVARCHAR (50) NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC),
-    FOREIGN KEY ([ColorId]) REFERENCES [dbo].[Colors] ([Id]),
-    FOREIGN KEY ([BrandId]) REFERENCES [dbo].[Brands] ([Id])
-)
-
-
-
-
-CREATE TABLE [dbo].[Users] (
-    [Id]           INT             IDENTITY (1, 1) NOT NULL,
-    [FirstName]    VARCHAR (50)    NOT NULL,
-    [LastName]     VARCHAR (50)    NOT NULL,
-    [Email]        VARCHAR (100)   NOT NULL,
-    [PasswordSalt] VARBINARY (500) NOT NULL,
-    [PasswordHash] VARBINARY (500) NOT NULL,
-    [Status]       BIT             NOT NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
-);
-
-CREATE TABLE [dbo].[Customers] (
-    [Id]          INT          IDENTITY (1, 1) NOT NULL,
-    [UserId]      INT          NOT NULL,
-    [CompanyName] VARCHAR (50) NOT NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_Customers_Users] FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users] ([Id]) ON DELETE CASCADE ON UPDATE CASCADE 
-);
-
-CREATE TABLE [dbo].[Rentals] (
-    [Id]         INT      IDENTITY (1, 1) NOT NULL,
-    [CarId]      INT      NOT NULL,
-    [CustomerId] INT      NOT NULL,
-    [RentDate]   DATETIME NOT NULL,
-    [ReturnDate] DATETIME NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC),
-    FOREIGN KEY ([CarId]) REFERENCES [dbo].[Cars] ([Id]),
-
-);
-
-CREATE TABLE [dbo].[CarImages] (
-    [Id]        INT            IDENTITY (1, 1) NOT NULL,
-    [CarId]     INT            NULL,
-    [ImagePath] NVARCHAR (MAX) NULL,
-    [Date]      DATETIME       NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_CarImages_Cars] FOREIGN KEY ([CarId]) REFERENCES [dbo].[Cars] ([Id])
-);
-
-CREATE TABLE [dbo].[OperationClaims] (
-    [Id]   INT           IDENTITY (1, 1) NOT NULL,
-    [Name] VARCHAR (250) NOT NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
-);
-
-
-CREATE TABLE [dbo].[UserOperationClaims] (
-    [Id]               INT IDENTITY (1, 1) NOT NULL,
-    [UserId]           INT NOT NULL,
-    [OperationClaimId] INT NOT NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
-);
- 
-
+INSERT INTO Cars (CarName, BrandId, ColorId, ModelYear, DailyPrice, Descriptions) VALUES 
+('BMW 320i', 1, 2, 2022, 1500, 'M Sport'),
+('Mercedes C200', 2, 1, 2023, 2500, 'AMG'),
+('Renault Clio', 3, 3, 2021, 800, 'Touch'),
+('Audi A6', 4, 4, 2023, 3200, 'Quattro'),
+('Ford Focus', 5, 5, 2020, 1100, 'Titanium'),
+('Toyota Corolla', 6, 3, 2023, 1400, 'Flame');

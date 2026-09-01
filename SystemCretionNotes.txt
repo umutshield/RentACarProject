@@ -20,3 +20,17 @@ Entity Framework'ü sisteme ekle. (DataAccess > Nuget)
 Ef'ü yükledik ve þimdi kullanmamýz lazým. Veritabaný tablolarýyla kendi classlarýmýzý birbirine baðlamak için DataAccess>EntityFramework'te 
 bir class oluþtururuz. (RentacarContext)
 DataAccess>EntityFramework'te somut sýnýflara CRUD ve diðer metotlarý yazýp içeriklerini düzenleriz.
+Bu somut sýnýflar büyük projelerde çok fazla olacaðý için bir base sýnýfý(EfEntityRepositoryBasse) oluþturup oradan inherit alýrýz.
+Entity Framework'ü Core katmaný içinde ekle. (Solution Explorer > Manage Nuget packes for solution)
+
+Ýstersen Business'ta entitylerin soyut ve somut sýnýflarýný oluþtur ve içeriklerini doldur. 
+
+Dto oluþtur.
+Dto sql'de yaptýðýmýz tablolardaki bazý satýrlarý birleþtirme iþlemidir. Örneðin arabanýn adýný ve marka adýný yazdýrmak
+istiyoruz fakat araba sýnýfýnda marka adý diye bir özellik yok. Ýþte Dto ile bu iki tablodaki satýrlarý birleþtirip yazdýrýrýz.
+Entities>DTOs>CarDetailDto / bu sýnýfýn interface'ini yaz interface'in üzerine gel ampülden generate new type de ve 
+Core>Entities'e kaydet.
+Dto'yu hangi entity için oluþturduysak oranýn soyut sýnýfýnda details metotu yazarýz, entityframeworkünde implement eder ve join iþlemini 
+yazarýz.
+Sonrasýnda bu metotlarý Business'ta ekle.
+
