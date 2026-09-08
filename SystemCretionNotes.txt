@@ -1,5 +1,6 @@
 Katmanlarý oluþtur. Katmanlara klasörleri ekle. 
-Katmanlarda referans vermeyi unutma.(Entities>Core / DataAccess>Entities,Core / Business>DataAccess,Entites / ConsoleUI>core hariç hepsi)
+Katmanlarda referans vermeyi unutma.(Entities>Core / DataAccess>Entities,Core / Business>DataAccess,Entites 
+/ WebApi>core hariç hepsi / ConsoleUI>core hariç hepsi)
 
 Entityleri oluþtur. (çýplak class kalmasýn)
 
@@ -36,4 +37,6 @@ Sonrasýnda bu metotlarý Business'ta ekle.
 
 CRUD operasyonlar gerçekleþirken iþlemin baþarýlý olup olmadýðýný ve bununla ilgili bilgilendirici mesajlarý almak için Result 
 yapýlandýrmalarýný kullanýrýz. (Core>Utilities>Results)
+
+WebAPI'u oluþtur.(Add>New Project>asp.net>WebAPI)
 
