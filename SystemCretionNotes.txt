@@ -34,3 +34,6 @@ Dto'yu hangi entity için oluşturduysak oranın soyut sınıfında details metotu yaz
 yazarız.
 Sonrasında bu metotları Business'ta ekle.
 
+CRUD operasyonlar gerçekleşirken işlemin başarılı olup olmadığını ve bununla ilgili bilgilendirici mesajları almak için Result 
+yapılandırmalarını kullanırız. (Core>Utilities>Results)
+
